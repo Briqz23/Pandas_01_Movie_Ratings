@@ -63,3 +63,12 @@ sns.barplot(data = dados, x = 'lingua', y = 'total')
 filmes_sem_lingua_original_em_ingles = tmdb.query("original_language != 'en' ").original_language.value_counts()
 
 sns.catplot(x = "original_language", kind="count", data = filmes_sem_lingua_original_em_ingles)
+
+
+#aspect ==> 1:2, sendo 1:1 quadrado.
+#.index ==> maior: esquerda | menor:direita
+sns.catplot(x = "original_language", data = filmes_sem_lingua_original_em_ingles, 
+            kind="count", 
+            aspect=2,
+            palette="GnBu_d",
+            order = total_por_lingua_de_outros_filmes.index)
